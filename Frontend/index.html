@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Barbershop El Galpón</title>
+  <style>
+    /* Estilo minimalista y vintage */
+    body {
+      font-family: 'Georgia', serif;
+      background-color: #f5f1e9;
+      color: #3e2c1c;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #3e2c1c;
+      color: #f5f1e9;
+      padding: 1rem;
+      text-align: center;
+      font-size: 2rem;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      background-color: #e0d7c6;
+      padding: 1rem 0;
+    }
+    nav a {
+      color: #3e2c1c;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    main {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      background-color: #fff;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(62,44,28,0.2);
+    }
+    label {
+      font-weight: bold;
+    }
+    input, select, button {
+      padding: 0.5rem;
+      font-size: 1rem;
+      border: 1px solid #3e2c1c;
+      border-radius: 4px;
+    }
+    button {
+      background-color: #3e2c1c;
+      color: #f5f1e9;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #5a4224;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #3e2c1c;
+      color: #f5f1e9;
+      margin-top: 3rem;
+    }
+  </style>
+</head>
+<body>
+  <header>Barbershop El Galpón</header>
+  <nav>
+    <a href="#inicio">Inicio</a>
+    <a href="#reservas">Reservas</a>
+    <a href="#contacto">Contacto</a>
+    <a href="#admin">Admin</a>
+  </nav>
+  <main>
+    <section id="inicio">
+      <h2>Bienvenido a Barbershop El Galpón</h2>
+      <p>Tu barbería de confianza con estilo vintage y moderno.</p>
+      <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80" alt="Barbería vintage" style="width:100%; border-radius:8px; margin-top:1rem;" />
+    </section>
+
+    <section id="reservas" style="margin-top:3rem;">
+      <h2>Reserva tu turno</h2>
+      <form id="formReserva">
+        <label for="nombre">Nombre completo</label>
+        <input type="text" id="nombre" name="nombre" required />
+
+        <label for="telefono">Teléfono</label>
+        <input type="tel" id="telefono" name="telefono" required />
+
+        <label for="fecha">Fecha</label>
+        <input type="date" id="fecha" name="fecha" required />
+
+        <label for="hora">Hora</label>
+        <select id="hora" name="hora" required>
+          <option value="">Selecciona una hora</option>
+          <option>10:00</option>
+          <option>11:00</option>
+          <option>12:00</option>
+          <option>13:00</option>
+          <option>14:00</option>
+          <option>15:00</option>
+          <option>16:00</option>
+          <option>17:00</option>
+        </select>
+
+        <button type="submit">Reservar</button>
+      </form>
+      <p id="mensajeReserva" style="margin-top:1rem; font-weight:bold;"></p>
+    </section>
+
+    <section id="contacto" style="margin-top:3rem;">
+      <h2>Contacto</h2>
+      <p>Dirección: Camino 16 Parcela "A" 181, Viedma</p>
+      <p>Teléfono: +54 9 2920415441</p>
+      <p>Email: lucaschw10@gmail.com</p>
+      <iframe src="https://www.google.com/maps/place/El+Galpon/@-40.7481746,-63.1805264,15z/data=!4m6!3m5!1s0x95f6b9d56f957863:0x94502479f35f0d0f!8m2!3d-40.7473669!4d-63.1789321!16s%2Fg%2F11y2_r_s8k?entry=ttu&g_ep=EgoyMDI1MDkxMC4wIKXMDSoASAFQAw%3D%3D" width="100%" height="300" style="border:0; border-radius:8px;" allowfullscreen="" loading="lazy"></iframe>
+    </section>
+
+    <section id="admin" style="margin-top:3rem;">
+      <h2>Panel de Administración</h2>
+      <p>Acceso restringido.</p>
+      <!-- Aquí se implementaría login y panel admin -->
+    </section>
+  </main>
+  <footer>
+    &copy; 2024 Barbershop El Galpón
+  </footer>
+
+  <script>
+    // Ejemplo simple para manejar reserva (sin backend)
+    const form = document.getElementById('formReserva');
+    const mensaje = document.getElementById('mensajeReserva');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      // Aquí se enviaría la reserva a backend
+      mensaje.textContent = '¡Reserva realizada con éxito! Nos pondremos en contacto.';
+      form.reset();
+    });
+  </script>
+</body>
+</html>
