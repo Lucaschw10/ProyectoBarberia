@@ -145,14 +145,30 @@
   <script>
     // Ejemplo simple para manejar reserva (sin backend)
     const form = document.getElementById('formReserva');
-    const mensaje = document.getElementById('mensajeReserva');
+  const mensaje = document.getElementById('mensajeReserva');
 
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      // Aquí se enviaría la reserva a backend
-      mensaje.textContent = '¡Reserva realizada con éxito! Nos pondremos en contacto.';
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    // Obtén los valores del formulario
+    const nombre = form.nombre.value;
+    const telefono = form.telefono.value;
+    const fecha = form.fecha.value;
+    const hora = form.hora.value;
+
+    fetch('https://barbershop-el-galpon.onrender.com/api/reservas', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ nombre, telefono, fecha, hora })
+    })
+    .then(res => res.json())
+    .then(data => {
+      mensaje.textContent = '¡Reserva realizada con éxito!';
       form.reset();
+    })
+    .catch(err => {
+      mensaje.textContent = 'Error al reservar, intenta de nuevo.';
     });
+  });
   </script>
 </body>
 </html>
